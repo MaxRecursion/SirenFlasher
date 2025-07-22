@@ -23,8 +23,6 @@
     "android": {
       "package": "com.maxrecursion.emergencysiren",
       "versionCode": 1,
-      "compileSdkVersion": 34,
-      "targetSdkVersion": 34,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FF0000"
