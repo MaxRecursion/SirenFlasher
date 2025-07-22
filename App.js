@@ -1,20 +1,50 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
+import PrivacyPolicyScreen from './screens/PrivacyPolicyScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar style="light" backgroundColor="transparent" translucent />
+      <Stack.Navigator 
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+          gestureEnabled: true,
+          cardStyle: { backgroundColor: '#000000' }
+        }}
+      >
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{
+            title: 'Ambulance Siren'
+          }}
+        />
+        <Stack.Screen 
+          name="About" 
+          component={AboutScreen}
+          options={{
+            title: 'About',
+            cardStyle: { backgroundColor: '#FFFFFF' }
+          }}
+        />
+        <Stack.Screen 
+          name="Privacy" 
+          component={PrivacyPolicyScreen}
+          options={{
+            title: 'Privacy Policy',
+            cardStyle: { backgroundColor: '#FFFFFF' }
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
